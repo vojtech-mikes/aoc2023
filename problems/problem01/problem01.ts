@@ -1,25 +1,15 @@
 import { readFileSync } from "fs";
 
 const input: string[][] = readFileSync("./problem01_input.txt", "utf8").split("\n").map(cv => Array.from(cv));
-const cvs: number[] = [];
+
+let result: number = 0;
 
 input.forEach(cv => {
-	const h: string[] = [];
-	for(let i = 0; i < cv.length; i++) {
-		if (Number(cv[i])) {
-			h.push(cv[i]);
-			break;
-		}
-	}
-	for(let i = cv.length-1; i >= 0; i--) {
-		if (Number(cv[i])) {
-			h.push(cv[i]);
-			break;
-		}
-	}
-	cvs.push(Number(h.join("")));
+	const f = cv.find(x => Number(x)) ?? "";
+	const l = cv.findLast(x => Number(x)) ?? "";
+
+	result += Number(f +l);
 });
 
-const result = cvs.reduce((a,b) => a + b, 0);
 
 console.log(result);
