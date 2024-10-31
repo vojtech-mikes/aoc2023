@@ -32,7 +32,9 @@ def solve(filename: str) -> int:
     return suma
 
 
-solve("data/day1")
 # Tests
 assert solve("data/day1test") == 142, "Coordinates should be 142"
 assert solve("data/day1test2") == 281, "Coordinates should be 281"
+
+
+solve("data/day1")
